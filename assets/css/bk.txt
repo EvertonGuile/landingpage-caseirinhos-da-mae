@@ -1,0 +1,122 @@
+// Selecionar todos os itens de navegação
+const navItems = document.querySelectorAll('.nav-item');
+
+// Função para ativar o item clicado e desativar os outros
+navItems.forEach(item => {
+    item.addEventListener('click', function() {
+        // Remove a classe active de todos os itens
+        navItems.forEach(nav => nav.classList.remove('active'));
+
+        // Adiciona a classe active ao item clicado
+        this.classList.add('active');
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Seleciona o botão pelo ID
+    var mobileBtn = document.getElementById('mobile_btn');
+
+    // Adiciona o evento de clique ao botão
+    mobileBtn.addEventListener('click', function() {
+        // Seleciona o menu pelo ID
+        var mobileMenu = document.getElementById('mobile_menu');
+        
+        // Alterna a classe 'active'
+        mobileMenu.classList.toggle('active');
+    });
+});
+
+
+
+
+
+
+
+
+.nav-item a {
+    text-decoration: none;
+    color: #1d1d1dad;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 0px 10px;
+}
+
+
+.nav-item.active a {
+    color: var(--cor3);
+    border-bottom: 3px solid var(--cor3);
+    border-radius: 5px;
+}
+
+#nav_itens button {
+    border: none;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background-color: var(--cor3);
+
+    padding: 0px 18px;
+}
+
+/* nav a {
+    text-decoration: none;
+    padding: 0px 10px;
+    color: var(--cor1);
+    font-weight: 600;    
+} */
+
+.whatsapp {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(98%) saturate(325%) hue-rotate(65deg) brightness(92%) contrast(89%);
+    filter: green;
+}
+
+#mobile_menu {
+    display: none;
+}
+
+
+/* REPONSIVIDADE */
+@media screen and (max-width : 858px) {
+    header h1 {
+        padding-bottom: 0px;
+    }
+
+    #nav_list a {
+        display: none;
+    } 
+
+    #nav_itens button {
+        display: flex;
+    }
+
+    #mobile-menu {
+        display: none;
+    }
+
+    /* Quando o menu mobile estiver ativo */
+    
+    #mobile_menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* #mobile_nav_list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 12px 0px;
+    }
+
+    #mobile_nav_list .nav-item {
+        list-style: none;
+        text-align: center;
+    } */
+
+}
+
+/*  */

@@ -1,0 +1,406 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:root {
+    --cor0: #FFF9EA;
+    
+    --cor1-2: #1d1d1dde;
+    --cor1: #683c13de;
+    --cor2: #FFE100;
+    --cor3: #FFCB45;
+    --cor4: #F8D477;
+    --corShape0: #FFE8B4;
+
+    --gradiente0: rgba( 0, 0, 0, 0.1 );
+
+    --fonte-padrao: 'Poppins', sans-serif;
+    --fonte-logo: 'Pacifico', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    /* box-sizing: border-box; */
+
+    font-family: var(--fonte-padrao);
+}
+
+html {
+    scroll-padding-top: 114.4px; /* Ajuste de acordo com a altura do header */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--cor1);
+    z-index: 1000; /* Garante que o header fique acima dos outros elementos */
+    padding: 1rem 0; /* Ajuste o padding como preferir */
+}
+
+body {
+    background-color: var(--cor0);
+    margin-top: 114.4px; /* Ajuste para o valor da altura do seu header */
+}
+
+/* ANTIGO */
+section#inicio {
+    padding: 0px 8%;
+    height: 10px;
+}
+
+.nav-bar {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    padding: 1.5rem 6rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    font-family: var(--fonte-logo);
+    font-size: larger;
+    font-weight: 500;
+    color: var(--cor3);
+    white-space: nowrap;
+    /* padding-bottom: 8px; */
+}
+
+/* .nav_list {
+    display: flex;
+    list-style: none;
+    gap: 48px;
+} */
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    /* gap: 48px; */
+}
+
+.nav-list ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+/* Links de navegação */
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    font-size: 1.005rem;
+    color: var(--cor0);
+    font-weight: 600;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+/* Barra sob o item de navegação (animação do meio para as extremidades) */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Começa no centro */
+    bottom: 0;
+    height: 3px;
+    width: 0; /* Inicialmente invisível */
+    background-color: var(--cor3); /* Cor da barra */
+    transition: width 0.4s ease, left 0.4s ease; /* Animação suave */
+}
+
+.nav-item.active .nav-link::after {
+    width: 100%; /* Expande a barra */
+    left: 0; /* Ajusta para cobrir toda a largura */
+}
+
+.nav-item.active .nav-link {
+    color: var(--cor3); /* Cor do link ativo */
+}
+
+
+.whatsapp-icon {
+    display: flex;
+    background-color: white;
+    border-radius: 12px;
+    padding: 5px;
+}
+
+.whatsapp-icon a {
+    display: flex;
+    align-items: center;
+}
+
+.whatsapp-img {
+    /* display: flex;
+    align-items: center; */
+    filter: brightness(0) saturate(100%) invert(48%) sepia(98%) saturate(325%) hue-rotate(65deg) brightness(92%) contrast(89%);
+    filter: green;
+}
+
+.mobile-menu-icon {
+    display: none;
+}
+
+/* TRANSIÇÃO do mobile-menu-icon */
+.mobile-menu-icon img.icon {
+    transition: transform 0.4s ease; /* Transição suave na rotação */
+}
+
+.icon-rotate-clockwise {
+    transform: rotate(90deg); /* Rotação no sentido horário */
+}
+
+.icon-reset {
+    transform: rotate(0deg); /* Rotação no sentido anti-horário */
+}
+
+
+.mobile-menu {
+    display: none;
+}
+
+.division-box {
+    background-color: var(--cor3);
+    width: 600px;
+    height: 1000px;
+}
+
+/* 
+
+
+
+
+
+
+
+
+*/
+/* ANTIGO */
+.btn-default {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffcb45;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 600;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+/* PARA EFEITO DE PASSAR MOUSE NO BOTÃO DE INTERAÇÃO */
+.btn-default:hover {
+    background-color: #f8d477;
+}
+
+/* PARA ESTRUTURA PRINCIPAL */
+#inicio {
+    display: flex;
+    flex-wrap: wrap; /* Permite a quebra para próxima linha em telas menores */
+    justify-content: space-between;
+    min-height: calc(100vh - 96px);
+    padding: 28px 8%;
+    position: relative;
+}
+
+/* RESPONSIVO PARA CTA (TEXTO) */
+#cta {
+    width: 50%; /* Reduz o tamanho em desktops maiores */
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 5%;
+    z-index: 2;
+}
+
+/* PARA TÍTULOS E TEXTOS */
+#cta .title {
+    font-size: 3.5rem; /* Ajuste para ficar mais flexível */
+    color: #1d1d1d;
+    line-height: 1.2;
+}
+
+#cta .title span {
+    color: #ffcb45;
+}
+
+#cta .description {
+    font-size: 1.2rem;
+}
+
+#cta_buttons {
+    display: flex;
+    gap: 24px;
+}
+
+#cta_buttons a {
+    text-decoration: none;
+    color: #1d1d1d;
+}
+
+#phone_button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background-color: #fff;
+    padding: 8px 14px;
+    font-weight: 500;
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.027);
+    border-radius: 12px;
+}
+
+#phone_button button {
+    box-shadow: none;
+}
+
+.social-media-buttons {
+    display: flex;
+    gap: 18px;
+}
+
+.social-media-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 40px;
+    background-color: #fff;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #1d1d1d;
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.027);
+}
+
+.social-media-buttons a:hover {
+    box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, 0.050);
+}
+
+/* RESPONSIVO PARA BANNER (IMAGEM) */
+#banner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 50%; /* Controla o tamanho da imagem */
+    z-index: 2;
+}
+
+#banner img {
+    width: 100%;
+    max-width: 550px; /* Limita o tamanho máximo */
+    height: auto; /* Mantém proporção da imagem */
+}
+
+/* PARA O SHAPE */
+.shape {
+    background-color: #ffe8b4;
+    width: 50%;
+    height: 85%;
+    position: absolute;
+    border-radius: 40% 30% 0% 20%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 900px) {
+    .nav-bar {
+        padding: 1.5rem 4rem;
+    }
+    .nav-item {
+        display: none;
+    }
+
+    /* .login-button {
+        display: none;
+    } */
+
+    .mobile-menu-icon {
+        display: flex;
+    }
+
+    .mobile-menu-icon button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-menu-icon img.icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+    .mobile-menu .nav-item {
+        display: block;
+        padding-top: 0.5rem;
+    }
+
+    /* 
+    .mobile-menu .login-button {
+        display: block;
+        padding: 1rem 2rem;
+    }
+
+    .mobile-menu .login-button button {
+        width: 100%;
+    }
+    */
+
+    /* CLASSE que é adicionada ao clicar no botão onde o JS adiciona no .mobile-menu */
+    .open {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 827px) {
+    #cta .title {
+        font-size: 2rem; /* Ajuste para ficar mais flexível */
+        color: #f50000;
+        line-height: 1.2;
+    }
+}
+
+/* Este media query impede que os itens diminuam mais quando a tela tem 364px ou menos */
+@media screen and (max-width: 400px) {
+    /* .logo h1 {
+        font-size: 1.5rem; Defina o tamanho fixo ou máximo que deseja aqui
+    } */
+
+    .whatsapp {
+        width: 24px;
+        height: 24px;
+    }
+
+    .mobile-menu-icon img.icon {
+        width: 35px; /* Defina o tamanho fixo do ícone do menu */
+        height: 35px; /* Certifica-se de que mantenha a proporção */
+    }
+
+    /* Opcionalmente, ajuste os espaçamentos para melhorar o layout em telas menores */
+    .nav-bar div {
+        padding: 0rem 0.299rem;
+    }
+}
